@@ -1,15 +1,12 @@
-from apps.csv_processor import CSVProcessor
-from repository.balance_detail_repo import BalanceDetailRepo
+from apps.data_loader import DataLoader
+from apps.report_sender import ReportSender
+from config.config import Config
 
-from apps.csv_reader import CSVReader
-from apps.email_sender import EmailSender
+config = Config()
+report_sender = ReportSender()
+data_loader = DataLoader()
 
-csv_reader = CSVReader()
-#csv_processor = CSVProcessor()
-#email_sender = EmailSender()
-#balance_detail_repo = BalanceDetailRepo()
+config.init()
 
-#transactions_df = csv_reader.read('transaction.csv')
-#transactions = csv_processor.process_transactions(transactions_df)
-
-#balance_detail_repo.insert_multi(transactions)
+data_loader.load()
+report_sender.send()

@@ -8,7 +8,7 @@ class CSVProcessor:
     def process_transactions(self, transactions_df):
         transactions = []
 
-        for row in transactions_df:
+        for row in transactions_df.values:
             transactions.append(self._model_manager.balance_detail(
                 row[0],
                 row[1],
@@ -20,10 +20,16 @@ class CSVProcessor:
 
     @staticmethod
     def _extract_month(date: str):
+        date = date.replace('-', '/')
+
         return date.split('/')[0]
 
     @staticmethod
     def _to_float(value: str):
         value = value.replace('+', '')
+        value = value.replace(',', '.')
+
+        if value == '':
+            return 0
 
         return float(value)

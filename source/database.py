@@ -24,3 +24,6 @@ class DataBase(metaclass=SingletonMeta):
 
     def execute_query(self, query: str):
         self._postgres.execute_query(query)
+
+    def close(self):
+        self._postgres.close_conn()

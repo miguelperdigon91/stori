@@ -1,9 +1,14 @@
 class BalanceDetail:
+    _id: int
+    _date: str
+    _transaction: float
+    _month: str
+
     def __init__(self, _id: int, date: str, transaction: float, month: str):
-        self._id: int = _id
-        self._date: str = date
-        self._transaction: float = transaction
-        self._month: str = month
+        self._id = _id
+        self._date = date
+        self._transaction = transaction
+        self._month = month
 
     def id(self):
         return self._id
