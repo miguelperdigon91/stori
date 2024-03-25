@@ -3,14 +3,16 @@ from email.mime.text import MIMEText
 import smtplib
 import ssl
 from logging import error
+from os import environ
+from typing import List
 
 
 class EmailSender:
     @staticmethod
-    def send(addressees, subject, body, is_html=False):
+    def send(addressees: List[str], subject: str, body: str, is_html=False):
         try:
             gmail_user = 'miguelperdigon91@gmail.com'
-            gmail_password = ''
+            gmail_password = environ['GMAIL_PASSWORD']
             sent_from = 'technical_test@stori.com'
             to = addressees
 

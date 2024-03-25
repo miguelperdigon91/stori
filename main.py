@@ -10,3 +10,5 @@ config.init()
 
 data_loader.load()
 report_sender.send()
+
+config.close()

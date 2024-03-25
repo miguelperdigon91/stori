@@ -1,4 +1,5 @@
 from source.postgres import Postgres
+from os import environ
 
 
 class SingletonMeta(type):
@@ -14,7 +15,11 @@ class SingletonMeta(type):
 
 class DataBase(metaclass=SingletonMeta):
     def __init__(self):
-        self._postgres = Postgres('172.17.0.2', 'postgres', 'Story', 'mysecretpassword')
+        self._postgres = Postgres(
+            environ['POSTGRES_HOST'],
+            environ['POSTGRES_USER'],
+            environ['POSTGRES_DB'],
+            environ['POSTGRES_PASSWORD'])
 
     def do_query_returning_id(self, query: str):
         return self._postgres.do_query(query)[0][0]

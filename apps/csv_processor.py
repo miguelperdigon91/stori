@@ -25,11 +25,15 @@ class CSVProcessor:
         return date.split('/')[0]
 
     @staticmethod
-    def _to_float(value: str):
+    def _to_float(value):
+        if isinstance(value, float):
+            if value != value:
+                return 0
+            return value
+
+        value = value.strip()
+
         value = value.replace('+', '')
         value = value.replace(',', '.')
-
-        if value == '':
-            return 0
 
         return float(value)

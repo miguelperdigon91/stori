@@ -33,7 +33,7 @@ class BalanceDetailRepo(Repository):
     def count_transactions_by_month(self):
         query = query_select(self._table_name,
                              'COUNT(transaction), month',
-                             'GROUP BY month'
+                             'GROUP BY month ORDER BY month'
                              )
 
         return self._data_base.do_query(query)
