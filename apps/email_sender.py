@@ -10,7 +10,7 @@ class EmailSender:
     def send(addressees, subject, body, is_html=False):
         try:
             gmail_user = 'miguelperdigon91@gmail.com'
-            gmail_password = 'wdujzegsdcuszzdv'
+            gmail_password = ''
             sent_from = 'technical_test@stori.com'
             to = addressees
 
