@@ -39,7 +39,7 @@ services:
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: Stori
-      GMAIL_PASSWORD: hgvkwocjeakugvfm
+      GMAIL_PASSWORD: gmail-password
       EMAIL_TARGET: miguelperdigon91@gmail.com
     volumes:
       - .:/app
