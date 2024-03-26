@@ -8,9 +8,9 @@ class CSVProcessor:
     def process_transactions(self, transactions_df):
         transactions = []
 
-        for row in transactions_df.values:
+        for idx, row in enumerate(transactions_df.values):
             transactions.append(self._model_manager.balance_detail(
-                row[0],
+                idx,
                 row[1],
                 self._to_float(row[2]),
                 self._extract_month(row[1])

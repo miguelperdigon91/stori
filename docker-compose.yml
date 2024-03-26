@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     image: postgres:latest
-    container_name: db_postgres_stori
+    container_name: db_postgres_stori_1
     restart: always
     environment:
       POSTGRES_USER: myuser
@@ -30,7 +30,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: miguel_stori_test
+    container_name: miguel_stori_test_1
     depends_on:
       - db
     environment:
@@ -39,7 +39,7 @@ services:
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: Stori
-      GMAIL_PASSWORD: gmail-password
+      GMAIL_PASSWORD: hgvkwocjeakugvfm
       EMAIL_TARGET: miguelperdigon91@gmail.com
     volumes:
       - .:/app
